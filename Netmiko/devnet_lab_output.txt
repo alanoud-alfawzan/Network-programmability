@@ -1,0 +1,130 @@
+##############################  Output Of Show Running Config  ##############################
+Sun Dec  4 19:48:27.984 UTC
+Building configuration...
+!! IOS XR Configuration 7.3.2
+!! Last configuration change at Sun Dec  4 19:22:53 2022 by admin
+!
+hostname iosxr1
+username root
+ group root-lr
+ group cisco-support
+ secret 10 $6$XvYiZ/CdPNuK4Z/.$3/15yGC1Br2nlIy/AwZVNsl0BbD.XLbqAL2h8hR4CpBxM.ir4ZilYykiaTqMwe/EB6UySyH7ea/x09ajR6NXz.
+!
+username admin
+ group root-lr
+ group cisco-support
+ secret 10 $6$vEaDc/Yt1OyU4c/.$v0lze75JluVDfcM6rgDlsFY3oMB6ODv6l5rgRnk3bFrvnzSFnoEIF.hcc1O/2.YxnAuRLSy7VQGmGedvoBlOp.
+!
+grpc
+ port 57777
+ address-family ipv4
+!
+tpa
+ vrf default
+  address-family ipv4
+   default-route mgmt
+  !
+ !
+!
+line console
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
+!
+line default
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method http
+ !
+!
+netconf-yang agent
+ ssh
+!
+interface Loopback100
+ description ***MERGE LOOPBACK 100****
+ ipv4 address 1.1.1.100 255.255.255.255
+!
+interface Loopback111
+ description Configured by NETCONF
+!
+interface Loopback200
+ description ***MERGE LOOPBACK 200****
+ ipv4 address 1.1.1.200 255.255.255.255
+!
+interface MgmtEth0/RP0/CPU0/0
+ ipv4 address 10.10.20.175 255.255.255.0
+!
+interface GigabitEthernet0/0/0/0
+ ipv4 address 172.16.1.1 255.255.255.0
+ shutdown
+!
+interface GigabitEthernet0/0/0/1
+ shutdown
+!
+interface GigabitEthernet0/0/0/2
+ shutdown
+!
+interface GigabitEthernet0/0/0/3
+ shutdown
+!
+interface GigabitEthernet0/0/0/4
+ shutdown
+!
+interface GigabitEthernet0/0/0/5
+ shutdown
+!
+interface GigabitEthernet0/0/0/6
+ shutdown
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 10.10.20.254
+ !
+!
+xml agent tty
+ iteration off
+!
+netconf agent tty
+!
+ssh server v2
+ssh server vrf default
+ssh server netconf vrf default
+end
+##############################  Output Of Show Inventory  ##############################
+Sun Dec  4 19:48:28.976 UTC
+NAME: "0/0", DESCR: "Cisco IOS-XRv 9000 Centralized Line Card"
+PID: R-IOSXRV9000-LC-C , VID: V01, SN: 6475A28D725
+
+NAME: "0/0/0", DESCR: "N/A"
+PID: PORT-1G-NIC       , VID: N/A, SN: N/A
+
+NAME: "0/0/1", DESCR: "N/A"
+PID: PORT-1G-NIC       , VID: N/A, SN: N/A
+
+NAME: "0/0/2", DESCR: "N/A"
+PID: PORT-1G-NIC       , VID: N/A, SN: N/A
+
+NAME: "0/0/3", DESCR: "N/A"
+PID: PORT-1G-NIC       , VID: N/A, SN: N/A
+
+NAME: "0/0/4", DESCR: "N/A"
+PID: PORT-1G-NIC       , VID: N/A, SN: N/A
+
+NAME: "0/0/5", DESCR: "N/A"
+PID: PORT-1G-NIC       , VID: N/A, SN: N/A
+
+NAME: "0/0/6", DESCR: "N/A"
+PID: PORT-1G-NIC       , VID: N/A, SN: N/A
+
+NAME: "0/RP0", DESCR: "Cisco IOS-XRv 9000 Centralized Route Processor"
+PID: R-IOSXRV9000-RP-C , VID: V01, SN: 986AF9109D3
+
+NAME: "Rack 0", DESCR: "Cisco IOS-XRv 9000 Centralized Virtual Router"
+PID: R-IOSXRV9000-CC   , VID: V01, SN: 8F21767F3A3
