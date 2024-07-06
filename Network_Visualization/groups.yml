@@ -1,0 +1,7 @@
+---
+
+cisco_ios:
+  platform: # platform type
+  connection_options:
+    restconf:
+      port: 443

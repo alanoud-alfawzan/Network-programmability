@@ -1,0 +1,12 @@
+---
+inventory:
+  plugin: SimpleInventory
+  options:
+    host_file: "hosts.yml"
+    group_file: "groups.yml"
+
+
+runners:
+    plugin: threaded
+    options:
+        num_workers: # write the tottal number of devices in your infra
